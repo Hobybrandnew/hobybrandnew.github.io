@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>我的第一篇博客文章 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring学习11.程序的耦合和解耦 JDBC驱动注册 思路：解耦工厂模式解耦 编译期不依赖,运行时才依赖   2.使用注解实现IOC注解的作用相当于bean.xml中的标签 @Component: 把当前类对象存入spring容器中,其属性如下:  value: 用于指定当前类的id. 不写时默认值是当前类名,且首字母改小写 @Controller: 将当前表现层对象存入spring容器中 @">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的第一篇博客文章">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Spring学习11.程序的耦合和解耦 JDBC驱动注册 思路：解耦工厂模式解耦 编译期不依赖,运行时才依赖   2.使用注解实现IOC注解的作用相当于bean.xml中的标签 @Component: 把当前类对象存入spring容器中,其属性如下:  value: 用于指定当前类的id. 不写时默认值是当前类名,且首字母改小写 @Controller: 将当前表现层对象存入spring容器中 @">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-03T10:55:36.401Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-我的第一篇博客文章" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="article-date">
+  <time datetime="2019-11-03T10:33:05.000Z" itemprop="datePublished">2019-11-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      我的第一篇博客文章
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring学习1"><a href="#Spring学习1" class="headerlink" title="Spring学习1"></a>Spring学习1</h1><h2 id="1-程序的耦合和解耦"><a href="#1-程序的耦合和解耦" class="headerlink" title="1.程序的耦合和解耦"></a>1.程序的耦合和解耦</h2><ul>
+<li>JDBC驱动注册</li>
+<li>思路：解耦工厂模式解耦</li>
+<li>编译期不依赖,运行时才依赖</li>
+</ul>
+<hr>
+<h2 id="2-使用注解实现IOC"><a href="#2-使用注解实现IOC" class="headerlink" title="2.使用注解实现IOC"></a>2.使用注解实现IOC</h2><h3 id="注解的作用相当于bean-xml中的标签"><a href="#注解的作用相当于bean-xml中的标签" class="headerlink" title="注解的作用相当于bean.xml中的标签"></a><em>注解的作用相当于bean.xml中的<bean>标签</em></h3><ul>
+<li><h3 id="Component-把当前类对象存入spring容器中-其属性如下"><a href="#Component-把当前类对象存入spring容器中-其属性如下" class="headerlink" title="@Component: 把当前类对象存入spring容器中,其属性如下:"></a>@Component: 把当前类对象存入spring容器中,其属性如下:</h3>  value: 用于指定当前类的id. 不写时默认值是当前类名,且首字母改小写</li>
+<li><h3 id="Controller-将当前表现层对象存入spring容器中"><a href="#Controller-将当前表现层对象存入spring容器中" class="headerlink" title="@Controller: 将当前表现层对象存入spring容器中"></a>@Controller: 将当前表现层对象存入spring容器中</h3></li>
+<li><h3 id="Service-将当前业务层对象存入spring容器中"><a href="#Service-将当前业务层对象存入spring容器中" class="headerlink" title="@Service: 将当前业务层对象存入spring容器中"></a>@Service: 将当前业务层对象存入spring容器中</h3></li>
+<li><h3 id="Repository-将当前持久层对象存入spring容器中"><a href="#Repository-将当前持久层对象存入spring容器中" class="headerlink" title="@Repository: 将当前持久层对象存入spring容器中"></a>@Repository: 将当前持久层对象存入spring容器中</h3></li>
+</ul>
+<p><em>Controller,@Service,@Repository注解的作用和属性与@Component是一模一样的,可以相互替代,它们的作用是使三层对象的分别更加清晰</em></p>
+<ul>
+<li><h3 id="Autowired-自动按照成员变量类型注入"><a href="#Autowired-自动按照成员变量类型注入" class="headerlink" title="@Autowired: 自动按照成员变量类型注入."></a>@Autowired: 自动按照成员变量类型注入.</h3><p>  注入过程<br>  当spring容器中有且只有一个对象的类型与要注入的类型相同时,注入该对象.<br>  当spring容器中有多个对象类型与要注入的类型相同时,使用要注入的变量名作为bean的id,在spring 容器查找,找到则注入该对象.找不到则报错.<br>  出现位置: 既可以在变量上,也可以在方法上<br>  细节: 使用注解注入时,set方法可以省略</p>
+</li>
+<li><h3 id="Qualifier-在自动按照类型注入的基础之上-再按照bean的id注入"><a href="#Qualifier-在自动按照类型注入的基础之上-再按照bean的id注入" class="headerlink" title="@Qualifier: 在自动按照类型注入的基础之上,再按照bean的id注入."></a>@Qualifier: 在自动按照类型注入的基础之上,再按照bean的id注入.</h3><p>  出现位置: 既可以在变量上,也可以在方法上.注入变量时不能独立使用,必须和@Autowire一起使用; 注入方法时可以独立使用.<br>  属性:<br>  value: 指定bean的id</p>
+</li>
+<li><h3 id="Resource-直接按照bean的id注入-它可以独立使用-独立使用时相当于同时使用-Autowired和-Qualifier两个注解"><a href="#Resource-直接按照bean的id注入-它可以独立使用-独立使用时相当于同时使用-Autowired和-Qualifier两个注解" class="headerlink" title="@Resource: 直接按照bean的id注入,它可以独立使用.独立使用时相当于同时使用@Autowired和@Qualifier两个注解."></a>@Resource: 直接按照bean的id注入,它可以独立使用.独立使用时相当于同时使用@Autowired和@Qualifier两个注解.</h3></li>
+<li><h3 id="Value-注入基本数据类型和String类型数据"><a href="#Value-注入基本数据类型和String类型数据" class="headerlink" title="@Value: 注入基本数据类型和String类型数据"></a>@Value: 注入基本数据类型和String类型数据</h3></li>
+<li><h3 id="value-用于指定数据的值-可以使用el表达式-表达式-用于改变作用范围的注解"><a href="#value-用于指定数据的值-可以使用el表达式-表达式-用于改变作用范围的注解" class="headerlink" title="value: 用于指定数据的值,可以使用el表达式(${表达式})用于改变作用范围的注解"></a>value: 用于指定数据的值,可以使用el表达式(${表达式})用于改变作用范围的注解</h3></li>
+<li><h3 id="Scope-指定bean的作用范围"><a href="#Scope-指定bean的作用范围" class="headerlink" title="@Scope: 指定bean的作用范围"></a>@Scope: 指定bean的作用范围</h3><p>  属性:[^value: 用于指定作用范围的取值,”singleton”,”prototype”,”request”,”session”,”globalsession”]</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" data-id="ck2ivsje7000188uncpy8g5mv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/03/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
